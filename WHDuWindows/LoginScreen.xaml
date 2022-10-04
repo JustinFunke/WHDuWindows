@@ -1,0 +1,29 @@
+﻿<Window x:Class="WHDuWindows.LoginScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WHDuWindows"
+        mc:Ignorable="d"
+     Title="LoginScreen" Height="559" Width="873" ResizeMode="NoResize" WindowStyle="None" WindowState="Normal"  MouseLeftButtonDown="LoginWindow_MouseLeftButtonDown" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid Background="#696969">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="150"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Ellipse x:Name="cmdClose" Grid.Row="0" Fill="#dc143c" Height="20" Width="20" Cursor="Hand" ToolTip="Close" Margin="0,10,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" MouseLeftButtonDown="cmdCloseLogin_Click"></Ellipse>
+        <Label Grid.Row="0" x:Name="lblAnzeigeWHD" Content="WasHastDu?" FontFamily="Century Gothic" FontSize="80" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#efebdc"/>
+
+        <Label Grid.Row="1" x:Name="lblAnzeigeEmail" Content="E-mail Adresse:" FontFamily="Century Gothic" FontSize="40" HorizontalAlignment="Center" Foreground="#FF00C0C0" Margin="0,30,0,0" />
+        <TextBox x:Name="txtEmail" Grid.Row="1" Height="30" Width="600" FontFamily="Century Gothic" FontSize="22.5" TabIndex="0" TextChanged="txtEmail_TextChanged"></TextBox>
+
+        <Label Grid.Row="1" x:Name="lblAnzeigePasswort" Content="Passwort:" FontFamily="Century Gothic" FontSize="40" HorizontalAlignment="Center" Foreground="#FF00C0C0" Margin="0,120,0,0"/>
+        <PasswordBox x:Name="txtPasswort" Grid.Row="1" Height="30" Width="600"  Margin="0,180,0,0" FontSize="25" FontFamily="Century Gothic" TabIndex="1"></PasswordBox>
+
+
+        <Button x:Name="cmdLogin" Grid.Row="2" Margin="300,25,300,125" FontFamily="Century Gothic" FontSize="30" Content="Login" Background="#FF00C0C0" TabIndex="3" Foreground="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Click="CmdLogin_Click"/>
+        <Button x:Name="cmdRegistrieren" Grid.Row="2" Margin="300,100,300,50" FontFamily="Century Gothic" FontSize="30" Content="Registrieren" Background="#FF00C0C0" TabIndex="4" Foreground="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Click="cmdRegistrieren_Click"/>
+
+    </Grid>
+</Window>

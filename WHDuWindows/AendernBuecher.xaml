@@ -1,0 +1,69 @@
+﻿<Window x:Class="WHDuWindows.AendernBuecher"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WHDuWindows"
+        mc:Ignorable="d"
+        Title="AendernBuecher" Height="400" Width="600" ResizeMode="NoResize" WindowStyle="None" WindowState="Normal" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid Background="#696969" Loaded="Grid_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition />
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Ellipse x:Name="cmdClosnHinzufuegen" Grid.Row="0" Fill="#dc143c" Height="20" Width="20" Cursor="Hand" ToolTip="Close" Margin="0,10,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" MouseLeftButtonDown="cmdCloseRegistrieren_MouseLeftButtonDown"></Ellipse>
+
+        <!-- Überschriften -->
+        <Label Grid.Row="0" x:Name="lblAnzeigeWHD" Content="Buch Ändern" FontFamily="Century Gothic" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#efebdc" Margin="0,20,0,0"/>
+
+        <!-- Textboxen (Main) -->
+        <StackPanel Grid.Row="1" Margin="30,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Label Content="Titel:" FontFamily="Century Gothic" FontSize="20" Foreground="#FF00C0C0" Margin="0,0,0,10"/>
+                    <Label Content="Autor:" FontFamily="Century Gothic" FontSize="20" Foreground="#FF00C0C0" Margin="0,10"/>
+                    <Label Content="Fertig Jahr:" FontFamily="Century Gothic" FontSize="20" Foreground="#FF00C0C0" Margin="0,10"/>
+                    <Label Content="Bewertung:" FontFamily="Century Gothic" FontSize="20" Foreground="#FF00C0C0" Margin="0,10,0,0"/>
+                    <Label Content="Von 1 bis 5" FontFamily="Century Gothic" FontSize="10" Foreground="#efebdc" Margin="0,-10,0,0"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBox x:Name="txtTitel" VerticalScrollBarVisibility="Auto" FontSize="20" FontFamily="Century Gothic" BorderThickness="0"  Margin="0,10" MinWidth="270" MinHeight="37"  VerticalContentAlignment="Center" />
+                    <TextBox x:Name="txtAutor" VerticalScrollBarVisibility="Auto" FontSize="20" FontFamily="Century Gothic" BorderThickness="0"  Margin="0,10" MinWidth="270" MinHeight="37"  VerticalContentAlignment="Center" />
+                    <TextBox x:Name="txtDatum" VerticalScrollBarVisibility="Auto" FontSize="20" FontFamily="Century Gothic" BorderThickness="0"  Margin="0,10" MinWidth="270" MinHeight="37"  VerticalContentAlignment="Center"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="Stern1" Grid.Column="0"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Right" MouseLeftButtonDown="Stern1_MouseLeftButtonDown"></Image>
+                        <Image x:Name="Stern2" Grid.Column="1"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Right" MouseLeftButtonDown="Stern2_MouseLeftButtonDown"></Image>
+                        <Image x:Name="Stern3"  Grid.Column="2"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Right" MouseLeftButtonDown="Stern3_MouseLeftButtonDown"></Image>
+                        <Image x:Name="Stern4" Grid.Column="3"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Right" MouseLeftButtonDown="Stern4_MouseLeftButtonDown"></Image>
+                        <Image x:Name="Stern5" Grid.Column="4"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Right" MouseLeftButtonDown="Stern5_MouseLeftButtonDown"></Image>
+                    </Grid>
+
+                </StackPanel>
+
+            </Grid>
+
+
+
+        </StackPanel>
+
+        <!-- Button -->
+        <StackPanel Grid.Row="2" Margin="40,0">
+
+            <Button x:Name="cmdHinzufuegen" Grid.Row="2" FontFamily="Century Gothic" FontSize="25" Margin="20,0" Content="Ändern" Background="#FF00C0C0" TabIndex="3" Foreground="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Click="cmdHinzufuegen_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -1,0 +1,237 @@
+﻿<Window x:Class="WHDuWindows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WHDuWindows"
+        mc:Ignorable="d"
+        Title="MainWindow" ResizeMode="CanResizeWithGrip" AllowsTransparency="True" Height="644" Width="1050"  WindowStartupLocation="CenterScreen" WindowStyle="None"  WindowState="Normal" MinHeight="644" MinWidth="1050" MouseLeftButtonDown="Window_MouseLeftButtonDown" Loaded="Window_Loaded" GotFocus="Window_GotFocus" MouseDown="Window_MouseDown" Icon="WHDLogo.png">
+    <!-- Größe bestimmen Mindestens -->
+
+
+
+
+
+    <DockPanel>
+        <!-- Sidebar Rechts -->
+        <Grid x:Name="gridSidebarRechts" DockPanel.Dock="Right" Background=" #696969" Width="200" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <!-- Profil + Vollbild + Schließen-->
+                <RowDefinition/>
+                <!-- Platzhalter + Suche -->
+                <RowDefinition Height="50"/>
+                <!--ÄndernButton-->
+                <RowDefinition Height="50"/>
+                <!-- AddButton -->
+                <RowDefinition Height="50"/>
+                <!-- DelButton -->
+                <RowDefinition Height="90" />
+                <!-- Logo -->
+
+            </Grid.RowDefinitions>
+
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <!--Username-->
+                        <ColumnDefinition/>
+                        <!--Bild-->
+                        <ColumnDefinition Width="30"/>
+                        <!-- Maxi Button-->
+                        <ColumnDefinition Width="25"/>
+                        <!-- Close Button-->
+                        <ColumnDefinition Width="35" />
+                        
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="lblUsername" Grid.Column="0"  Content="Stmjustin3" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="20"></Label>
+                    <Image x:Name="pb" Grid.Column="1"  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Right"></Image>
+
+                    <Ellipse x:Name="cmdMaxMin" Grid.Column="2" Fill="Yellow" Height="20" Width="20" Cursor="Hand" ToolTip="Vollbild" Margin="0,-10,0,0" HorizontalAlignment="Right" MouseLeftButtonDown="cmdMaxMin_Click"></Ellipse>
+                    <Ellipse x:Name="cmdClose" Grid.Column="3" Fill="#dc143c" Height="20" Width="20" Cursor="Hand" ToolTip="Schließen" Margin="0,-10,10,0" HorizontalAlignment="Right" MouseLeftButtonDown="cmdClose_Click"></Ellipse>
+                </Grid>
+
+
+            </Grid>
+
+            <StackPanel Grid.Row="1">
+                <Label FontSize="25" Foreground="#FF00C0C0" HorizontalAlignment="Center" FontFamily="Century Gothic" >Suche</Label>
+                <TextBox x:Name="txtSuche" Background="#696969" Foreground="#FF00C0C0"  Margin="20,0,20,0" Height="30" FontSize="20" TextChanged="txtSuche_TextChanged" ></TextBox>
+                <Label x:Name="lblAnbieter" FontSize="25" Foreground="#FF00C0C0" HorizontalAlignment="Center" FontFamily="Century Gothic" Visibility="Hidden">Anbieter</Label>
+                <ComboBox x:Name="cBoxAnbieter"  Visibility="Hidden" FontSize="20" FontFamily="Century Gothic" Margin="20,0,20,20" Background="#696969" SelectionChanged="cBoxAnbieter_SelectionChanged"/>
+
+
+                <CheckBox x:Name="chkFertig" Margin="20,0,0,0" Content="Durchgeguckt ?" Foreground="#FF00C0C0" FontSize="12" FontFamily="Century Gothic" Visibility="Hidden" Unchecked="chkFertig_CheckedChanged" Checked="chkFertig_CheckedChanged">
+                    <CheckBox.LayoutTransform>
+                        
+                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+            </StackPanel>
+            <!--ÄndernButton-->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label  Grid.Row="0" Background="#FF00C0C0" >
+                </Label>
+                <Button x:Name="cmdAendern" Background="Transparent" Content="Ändern" FontFamily="Century Gothic" Grid.Column="1" BorderBrush="Transparent" FontSize="25" Foreground="#FF00C0C0" Padding="0,0,99,0" Click="cmdAendern_Click"  ></Button>
+            </Grid>
+
+            <!-- AddButton -->
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label  Grid.Row="0" Background="#FF00C0C0" >
+                </Label>
+                <Button x:Name="cmdAdd" Background="Transparent" Content="Hinzufügen" FontFamily="Century Gothic" Grid.Column="1" BorderBrush="Transparent" FontSize="25" Foreground="#FF00C0C0" Padding="0,0,55,0" Click="cmdAdd_Click"  ></Button>
+            </Grid>
+
+
+            <!-- DelButton -->
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label  Grid.Row="0" Background="#FF00C0C0" >
+                </Label>
+                <Button x:Name="cmdDel" Content="Löschen" FontFamily="Century Gothic" Grid.Column="1" BorderBrush="Transparent" FontSize="25" Foreground="#FF00C0C0" Background="Transparent" Padding="0,0,90,0" Click="cmdDel_Click" />
+            </Grid>
+
+            <!--Logo -->
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="35*"/>
+                    <ColumnDefinition Width="61*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="logo"  Margin="10,10,0,10" HorizontalAlignment="Left" Width="58" RenderOptions.BitmapScalingMode="HighQuality"/>
+                <TextBlock Grid.Column="1" Foreground="#FF00C0C0" Margin="0,0,10,0" FontFamily="Century Gothic" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center" >WHDu</TextBlock>
+            </Grid>
+
+
+
+        </Grid>
+
+
+        <!-- Sidebar Top -->
+        <Grid x:Name="gridSidebarTop" Background="#696969" DockPanel.Dock="Top" Height="60" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition />
+
+                </Grid.RowDefinitions>
+                <Grid Background="#00C0C0"/>
+                <Button x:Name="cmdBuecher" Grid.Row="1" Background="Transparent" Content="Bücher" FontFamily="Century Gothic" FontSize="30" Padding="0,12,0,0" BorderBrush="Transparent" BorderThickness="0" Template="{DynamicResource hoverButtonGray}" Click="cmdBuecher_Click"></Button>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+                <Grid Background="#00C0C0"/>
+                <Button x:Name="cmdSerie" Grid.Row="1" BorderThickness="0" Background="Transparent" Content="Serien" FontFamily="Century Gothic" FontSize="30" Padding="0,12,0,0" BorderBrush="Transparent" Template="{DynamicResource hoverButtonGray}" Click="CmdSerie_Click"></Button>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+                <Grid Background="#00C0C0"/>
+                <Button x:Name="cmdFilme" Grid.Row="1" Background="Transparent" BorderThickness="0" Content="Filme" FontFamily="Century Gothic" FontSize="30" Padding="0,12,0,0" BorderBrush="Transparent" Template="{DynamicResource hoverButtonGray}" Click="CmdFilme_Click"></Button>
+            </Grid>
+
+            <Grid Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+                <Grid Background="#00C0C0"/>
+                <Button x:Name="cmdGames" Grid.Row="1"  Background="Transparent" BorderThickness="0" Content="Games" FontFamily="Century Gothic" FontSize="30" Padding="0,12,0,0" BorderBrush="Transparent" Template="{DynamicResource hoverButtonGray}" Click="CmdGames_Click"></Button>
+            </Grid>
+
+            <Grid Grid.Column="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+                <Grid Background="#00C0C0"/>
+                <Button x:Name="cmdBald" Grid.Row="1" Background="Transparent" Content="Bald" BorderThickness="0" FontFamily="Century Gothic" FontSize="30" Padding="0,12,0,0" BorderBrush="Transparent" Template="{DynamicResource hoverButtonGray}" Click="CmdBald_Click"/>
+            </Grid>
+
+
+        </Grid>
+
+
+        <!-- Inhaltliste-->
+
+        <DataGrid x:Name="dataGridContent" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden"  Background="#696969" BorderThickness="0" RowBackground="#00C0C0" HeadersVisibility="Column" ColumnWidth="*" BeginningEdit="dataGridContent_BeginningEdit" IsReadOnly="True" AlternatingRowBackground="#696969" AlternationCount="2" FontFamily="Century Gothic" CellEditEnding="dataGridContent_CellEditEnding">
+
+
+            <DataGrid.Resources>
+                <Style TargetType="RepeatButton">
+                    <Setter Property="Background" Value="Yellow"/>
+                </Style>
+                <Style TargetType="ScrollBar" >
+                    <Setter Property="Foreground" Value="Yellow"/>
+                    <Setter Property="Background" Value="#696969"/>
+                    <Setter Property="BorderThickness" Value=".6"/>
+                    <Setter Property="BorderBrush" Value="#4b4b4b"/>
+                 
+                    
+                    
+                    
+                </Style>
+                
+                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}"  Color="{x:Static SystemColors.HighlightColor}"/>
+                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}"  Color="{x:Static SystemColors.HighlightTextColor}"/>
+
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#00C0C0"/>
+                    <Setter Property="FontFamily" Value="Century Gothic"/>
+                    <Setter Property="FontSize" Value="15"/>
+                </Style>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=beendetColumn2}" Value="Ja">
+                            <Setter Property="Background" Value="#d2dae2"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+                
+            </DataGrid.Resources>
+
+        </DataGrid>
+        
+        
+        
+
+
+    </DockPanel>
+</Window>
